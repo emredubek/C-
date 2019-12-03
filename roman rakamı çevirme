@@ -1,0 +1,97 @@
+string sayi = Convert.ToString(textBox3.Text);
+
+            int toplam = 0;
+            int deger = 10000;
+            string roma = "ıvxlcdm";
+            for (int j = 0; j < sayi.Length; j++)
+            {
+
+                if (sayi[j] == roma[0])
+                {
+                    toplam += 1;
+                    deger = 1;
+                }
+                else if (sayi[j] == roma[1])
+                {
+                    if (deger >= 5)
+                    {
+                        toplam += 5;
+                        deger = 5;
+                    }
+                    else
+                    {
+                        toplam = 5 - deger;
+                        deger = 5;
+                    }
+                }
+
+                else if (sayi[j] == roma[2])
+                {
+                    if (deger >= 10)
+                    {
+                        toplam += 10;
+                        deger = 10;
+                    }
+                    else
+                    {
+                        toplam = 10 - deger;
+                        deger = 10;
+                    }
+
+                }
+
+                else if (sayi[j] == roma[3])
+                {
+                    if (deger >= 50)
+                    {
+                        toplam += 50;
+                        deger = 50;
+                    }
+                    else
+                    {
+                        toplam = 50 - deger;
+                        deger = 50;
+                    }
+                }
+                else if (sayi[j] == roma[4])
+                {
+                    if (deger >= 100)
+                    {
+                        toplam += 100;
+                        deger = 100;
+                    }
+                    else
+                    {
+                        toplam = 100 - deger;
+                        deger = 100;
+                    }
+                }
+                else if (sayi[j] == roma[5])
+                {
+                    if (deger >= 500)
+                    {
+                        toplam += 500;
+                        deger = 500;
+                    }
+                    else
+                    {
+                        toplam = 500 - deger;
+                        deger = 500;
+                    }
+                }
+                else if (sayi[j] == roma[6])
+                {
+                    if (deger >= 1000)
+                    {
+                        toplam += 1000;
+                        deger = 1000;
+                    }
+                    else
+                    {
+                        toplam = 1000 - deger;
+                        deger = 1000;
+                    }
+                }
+            }
+            textBox4.Text = (Convert.ToString(toplam));
+        }

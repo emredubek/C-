@@ -1,0 +1,185 @@
+Graphics grafik;
+        Pen kalem = new Pen(Color.Gray,1);
+        Brush firca = new SolidBrush(Color.Black);
+        Brush firca1 = new SolidBrush(Color.Blue);
+        Brush firca2 = new SolidBrush(Color.Red);
+        Brush firca3 = new SolidBrush(Color.Green);
+        Brush firca4 = new SolidBrush(Color.Yellow);
+        Brush firca8 = new SolidBrush(Color.Transparent);
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Graphics silme = this.CreateGraphics();
+            silme.Clear(Form.DefaultBackColor);
+            grafik = this.CreateGraphics();
+            int toplam = 0;
+            int konumx = label4.Location.X;
+            int konumy = label4.Location.Y;
+            var x = Convert.ToString(textBox1.Text);
+            x = x.ToLower();
+            string alfabe = " abcçdefgğhıijklmnoöprsştuüvwxyzq1234567890.,!:;-";
+            if (x.Length > 200)
+                MessageBox.Show("LÜTFEN TEK SEFERDE 200 KARAKTERDEN FAZLA GİRMEYİN");
+            else
+            {
+                for (int i = 0; i < x.Length; i++)
+                {
+                    toplam++;
+                    for (int j = 0; j < alfabe.Length; j++)
+                    {
+                        if (x[i] == alfabe[j])
+                        {
+                            for (int k = 0; k < 2; k++)
+                            {
+                                konumy -= 36;
+                                konumx += 12;
+
+                                if ((x[i] == 'a' || x[i] == 'e' || x[i] == 'z' || x[i] == '5' || x[i] == 'u' || x[i] == 'h'
+                                  || x[i] == 'r' || x[i] == 'k' || x[i] == 'o' || x[i] == 'q'
+                                  || x[i] == '1' || x[i] == '8') && k == 0)
+                                {
+                                    if (x[i] == '1' || x[i] == '5' || x[i] == '8')
+                                        grafik.FillEllipse(firca, konumx, konumy, 10, 10);
+                                    else if (x[i] == 'q')
+                                        grafik.FillEllipse(firca3, konumx, konumy, 10, 10);
+                                    else
+                                        grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+                                }
+
+                                if ((x[i] == 'b' || x[i] == 'v' || x[i] == '2' || x[i] == 'l') && (k == 0))
+                                {
+                                    if (x[i] == '2')
+                                        grafik.FillEllipse(firca, konumx, konumy, 10, 10);
+                                    else
+                                        grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+                                }
+
+                                if ((x[i] == 'c' || x[i] == 'd' || x[i] == 'f' || x[i] == '6' || x[i] == 'g'
+                                    || x[i] == 'm' || x[i] == 'ş' || x[i] == '7' || x[i] == 'n' || x[i] == 'p'
+                                     || x[i] == '4' || x[i] == '3' || x[i] == 'y') && (k == 0 || k == 1))
+                                {
+                                    if (x[i] == '3' || x[i] == '4' || x[i] == '6' || x[i] == '7')
+                                        grafik.FillEllipse(firca, konumx, konumy, 10, 10);
+                                    else if (x[i] == 'ş')
+                                        grafik.FillEllipse(firca2, konumx, konumy, 10, 10);
+                                    else
+                                        grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+                                }
+
+                                if (x[i] == 'ç' && (k == 0))
+                                    grafik.FillEllipse(firca2, konumx, konumy, 10, 10);
+
+                                if ((x[i] == 'd' || x[i] == '4') && (k == 0 || k == 1))
+                                {
+                                    if (x[i] == '4')
+                                        grafik.FillEllipse(firca, konumx, konumy, 10, 10);
+                                    else
+                                        grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+                                }
+                                if ((x[i] == 'ğ' || x[i] == 'ü') && k == 0)
+                                    grafik.FillEllipse(firca2, konumx, konumy, 10, 10);
+
+                                for (int m = 0; m < 3; m++)
+                                {
+                                    if (x[i] == 'x' && (m == 0 || m == 2))
+                                        grafik.FillEllipse(firca3, konumx, konumy, 10, 10);
+                                    if ((x[i] == '!' && (m == 1 || (m == 2 && k == 0))))
+                                        grafik.FillEllipse(firca4, konumx, konumy, 10, 10);
+                                    if ((x[i] == '-' && (m == 2)))
+                                        grafik.FillEllipse(firca4, konumx, konumy, 10, 10);
+                                    if ((x[i] == ';' && ((m == 1&&k==0) || (m == 2 && k == 0))))
+                                        grafik.FillEllipse(firca4, konumx, konumy, 10, 10);
+                                    if ((x[i] == ':' && (m == 1)))
+                                        grafik.FillEllipse(firca4, konumx, konumy, 10, 10);
+                                    if ((x[i] == '.' && (m == 1 || (m == 2 && k == 1))))
+                                        grafik.FillEllipse(firca4, konumx, konumy, 10, 10);
+                                    if (x[i] == 'w' && (m == 1 || k == 1))
+                                        grafik.FillEllipse(firca3, konumx, konumy, 10, 10);
+                                    if ((x[i] == 'b' || x[i] == 'v' || x[i] == 'f' || x[i] == '9'
+                                        || x[i] == '6' || x[i] == ',' || x[i] == 'i' || x[i] == 'l' || x[i] == 'p'
+                                        || x[i] == 's' || x[i] == '2' || x[i] == 'ö') && (m == 1 && k == 0))
+                                    {
+                                        if (x[i] == '2' || x[i] == '6' || x[i] == '9')
+                                            grafik.FillEllipse(firca, konumx, konumy, 10, 10);
+                                        else if (x[i] == ',')
+                                            grafik.FillEllipse(firca4, konumx, konumy, 10, 10);
+                                        else
+                                            grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+
+                                    }
+                                    if ((x[i] == 'ü' || x[i] == 'ı') && (k == 1 && m == 1))
+                                        grafik.FillEllipse(firca2, konumx, konumy, 10, 10);
+
+                                    if ((x[i] == 'ö' || x[i] == 'u' || x[i] == 'v' || x[i] == 'y'
+                                        || x[i] == 'z') && (k == 1 && m == 2))
+                                        grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+
+                                    if ((x[i] == 'g' || x[i] == '7' || (x[i] == 'h' || x[i] == '8'
+                                        || x[i] == 'j' || x[i] == '0' || x[i] == 'q' || x[i] == 'r'
+                                        || x[i] == 't')) && ((k == 1 && m == 1) || (k == 0 && m == 1)))
+                                    {
+                                        if (x[i] == '7' || x[i] == '8' || x[i] == '0')
+                                            grafik.FillEllipse(firca, konumx, konumy, 10, 10);
+                                        else if (x[i] == 'q')
+                                            grafik.FillEllipse(firca3, konumx, konumy, 10, 10);
+                                        else
+                                            grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+                                    }
+
+                                    if ((x[i] == 'ç' || x[i] == 'ğ' || x[i] == 'ü' || x[i] == 'ş') && (k == 1 && m == 2))
+                                        grafik.FillEllipse(firca2, konumx, konumy, 10, 10);
+
+                                    if ((x[i] == 'd' || x[i] == 'e' || x[i] == '5' || x[i] == '4'
+                                        || x[i] == 'y' || x[i] == 'o' || x[i] == 'n'
+                                        || x[i] == 'z') && (m == 1 && k == 1))
+                                    {
+                                        if ((x[i] == '4' || x[i] == '5'))
+                                            grafik.FillEllipse(firca, konumx, konumy, 10, 10);
+                                        else
+                                            grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+                                    }
+
+                                    if ((x[i] == 'ğ' || x[i] == 'ü') && (m == 1 && k == 0))
+                                        grafik.FillEllipse(firca2, konumx, konumy, 10, 10);
+
+                                    if ((x[i] == 'i' || x[i] == 'j' || x[i] == '0' || x[i] == 'q' || x[i] == '9' || x[i] == 's'
+                                        || x[i] == 'ö' || x[i] == 't') && (m == 0 && k == 1))
+                                    {
+                                        if (x[i] == '9' || x[i] == '0')
+                                            grafik.FillEllipse(firca, konumx, konumy, 10, 10);
+                                        else if (x[i] == 'q')
+                                            grafik.FillEllipse(firca3, konumx, konumy, 10, 10);
+                                        else
+                                            grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+                                    }
+                                    if ((x[i] == 'k' || x[i] == 'm' || x[i] == 'p'
+                                        || x[i] == 't' || x[i] == 's' || x[i] == 'r' || x[i] == 'n' || x[i] == 'o'
+                                       || x[i] == 'u' || x[i] == 'v' || x[i] == 'l' || x[i] == 'q' || x[i] == 'y'
+                                        || x[i] == 'ı' || x[i] == 'z') && (k == 0 && m == 2))
+                                    {
+                                        if (x[i] == 'ı')
+                                            grafik.FillEllipse(firca2, konumx, konumy, 10, 10);
+                                        else if (x[i] == 'q')
+                                            grafik.FillEllipse(firca3, konumx, konumy, 10, 10);
+                                        else
+                                            grafik.FillEllipse(firca1, konumx, konumy, 10, 10);
+                                    }
+                                    grafik.DrawEllipse(kalem, konumx, konumy, 10, 10);
+                                    grafik.FillEllipse(firca8, konumx, konumy, 10, 10);
+                                    konumy += 12;
+                                }
+                            }
+
+                            if (toplam == 25)
+                            {
+                                konumy += 40;
+                                konumx = label4.Location.X - 4;
+                                toplam = 0;
+                            }
+                            konumx += 6;
+                        }
+                    }
+                }
+
+            }
+        }

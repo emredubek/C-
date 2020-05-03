@@ -1,0 +1,33 @@
+#include<stdio.h>
+int karakterSil(char *kelime,char *harf,char *yeni){
+	int i,j,sayac=0,uzunluk,kontrol=0,a=0,harfUzunluk;
+		uzunluk=strlen(kelime);
+		harfUzunluk=strlen(harf);
+		for(i=0;i<100;i++)
+		yeni[i]='\0';
+	for(i=0;i<uzunluk;i++){
+		for(j=0;j<harfUzunluk;j++){
+			if(tolower(*(harf+j))==tolower(*(kelime+i))){
+				sayac++;
+				kontrol=1;
+			}
+		}	if(kontrol!=1){
+				*(yeni+a)=*(kelime+i);
+				a++;
+		} kontrol=0;
+	}	
+	return sayac;
+}
+int main(){
+		char kelime[100],harf[10],yeni[100];
+		int i,sayac;
+	printf("BIR CUMLE veya KELIME GIRINIZ :\n");
+		gets(kelime);
+	printf("\nSILINECEK HARFLERI GIRINIZ: \n");
+		gets(harf);
+			sayac=karakterSil(kelime,harf,yeni);
+			printf("\nYENI KELIME: ");
+			puts(yeni);
+			printf("%d TANE KARAKTER SILINDI!",sayac);
+	getch();
+}
